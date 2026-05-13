@@ -1,0 +1,6 @@
+gradio==4.44.1
+numpy
+pandas
+matplotlib
+tensorflow==2.15.0
+yfinance

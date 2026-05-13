@@ -1,0 +1,15 @@
+{
+  "ticker": "SPY",
+  "lookback": 120,
+  "horizons": [
+    5,
+    10
+  ],
+  "train_frac": 0.7,
+  "val_frac": 0.85,
+  "data_start": "1993-02-01",
+  "data_end": "2026-04-28",
+  "n_samples": 8247,
+  "train_end_date": "2016-06-22",
+  "val_end_date": "2021-05-21"
+}

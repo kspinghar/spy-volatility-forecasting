@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+*.egg-info/
+.DS_Store
+.idea/
+.vscode/
+*.log
+# Keep artifacts/ — they need to ship to the Space
