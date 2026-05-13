@@ -214,4 +214,4 @@ with gr.Blocks(theme=gr.themes.Soft(), title="SPY Volatility Forecasting") as de
     )
 
 if __name__ == "__main__":
-    demo.launch(share=True, server_port=7861, show_api=False)
+    demo.launch(show_api=False)
