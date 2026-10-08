@@ -44,7 +44,7 @@ if isinstance(raw.columns, pd.MultiIndex):
     raw.columns = raw.columns.get_level_values(0)
 df = raw.loc[:, ["Close"]].dropna().copy()
 if df.empty:
-    raise RuntimeError("No SPY data downloaded — check yfinance / network.")
+    raise RuntimeError("No SPY data downloaded. Check yfinance / network.")
 print(f"  rows: {len(df)} | {df.index.min().date()} → {df.index.max().date()}")
 
 # Bundle the snapshot so the Space can render dates without yfinance at runtime.

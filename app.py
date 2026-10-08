@@ -1,5 +1,5 @@
 """
-app.py — Gradio demo for the SPY volatility forecasting Space.
+app.py: Gradio demo for the SPY volatility forecasting Space.
 
 Loads the six pre-trained .h5 models, the bundled SPY snapshot, and lets the
 user pick a horizon, model, and date. Renders the 120-day return window the
@@ -88,7 +88,7 @@ def _window_at(date_str):
     idx = snapshot["Date"].searchsorted(target, side="right") - 1
     if idx < LOOKBACK - 1:
         raise ValueError(
-            f"Date {date_str} is too early — need at least {LOOKBACK} prior trading days."
+            f"Date {date_str} is too early. Need at least {LOOKBACK} prior trading days."
         )
     if idx >= len(snapshot):
         raise ValueError(f"Date {date_str} is past the bundled snapshot.")
@@ -160,13 +160,13 @@ def predict(date_label, horizon, arch_label):
     b = metrics["baseline"][str(h)]
 
     summary = (
-        f"### Forward {h}-day realized volatility — anchor {anchor_date}\n\n"
+        f"### Forward {h}-day realized volatility, anchor {anchor_date}\n\n"
         f"**Model ({arch_label}):** {pred:.5f} per day &nbsp; · &nbsp; {ann(pred):.2f}% annualized\n\n"
         f"**Persistence baseline:** {baseline:.5f} per day &nbsp; · &nbsp; {ann(baseline):.2f}% annualized\n\n"
         + (
             f"**Actual realized:** {actual:.5f} per day &nbsp; · &nbsp; {ann(actual):.2f}% annualized\n\n"
             if actual is not None
-            else f"*Actual realized vol not available — anchor too close to {DATA_END}.*\n\n"
+            else f"*Actual realized vol not available: anchor too close to {DATA_END}.*\n\n"
         )
         + "---\n"
         f"**Test-set error** (model vs baseline):\n\n"
@@ -181,11 +181,11 @@ def predict(date_label, horizon, arch_label):
 # ───────────────────────── Gradio UI ─────────────────────────
 with gr.Blocks(theme=gr.themes.Soft(), title="SPY Volatility Forecasting") as demo:
     gr.Markdown(
-        "# SPY Volatility Forecasting — CNN / LSTM / Hybrid\n"
+        "# SPY Volatility Forecasting: CNN / LSTM / Hybrid\n"
         "Pick a horizon, model, and a notable date. The app shows the 120-day SPY return window the model "
         "sees, then prints its forward-volatility prediction alongside the persistence baseline and the actual "
         "realized volatility for comparison.\n\n"
-        "*Bundled snapshot — SPY data is frozen at training time. First load may take ~30s.*"
+        "*Bundled snapshot: SPY data is frozen at training time. First load may take ~30s.*"
     )
 
     with gr.Row():

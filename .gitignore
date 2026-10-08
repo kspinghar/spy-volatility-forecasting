@@ -9,4 +9,4 @@ venv/
 .idea/
 .vscode/
 *.log
-# Keep artifacts/ — they need to ship to the Space
+# Keep artifacts/ (they need to ship to the Space)
